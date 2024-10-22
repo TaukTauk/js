@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Add to cart
+		</title>
+		<style>
+			.one{
+				border: none;
+				background-color: lightskyblue;
+				color: lightyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<button onclick="console.log(`Cart: ${cart}`);" class="one">
+			Cart
+		</button>
+		<button onclick="cart++;
+		console.log(cart);" class="one">
+		+1
+		</button>
+		<button onclick="cart += 2;
+		console.log(cart);" class="one">
+		+2
+		</button>
+		<button onclick="cart += 3;
+		console.log(cart);" class="one">
+		+3
+		</button>
+		<button onclick="cart += 4;
+		console.log(cart);" class="one">
+		+4
+		</button>
+		<button onclick="cart += 5;
+		console.log(cart);" class="one">
+		+5
+		</button>
+		<button onclick="cart -= 2;
+		console.log(cart);" class="one">
+		-2
+		</button>
+		<button onclick="cart -= 3;
+		console.log(cart);" class="one">
+		-3
+		</button>
+		<button onclick="cart = 0;
+		console.log(`Reset cart ${cart}`);" class="one">
+		Reset
+		</button>
+		<script>
+			let cart = 0;
+			console.log(cart);
+		</script>
+	</body>
+</html>
