@@ -31,6 +31,23 @@
 			">
 			Rock
 		</button>
+		<button onclick="
+			let rand = Math.random();
+			let text = '';
+			let res = '';
+			if (rand < 0.5)
+				text += 'head';
+			else if (rand >= 0.5)
+				text += 'tail';
+			guess === text ? res = 'you won!' : res = 'you lose!';
+			alert(`You guessed: ${guess}. Computer : ${text}. ${res}`);
+			">
+			Head-Tail
+		</button>
+		<button onclick="
+			guess = 'head';">Head</button>
+		<button onclick="
+			guess = 'tail';">Tail</button>
 		<script>
 			let now = new Date();
 			let hour = now.getHours();
@@ -44,6 +61,8 @@
 			else {
 				console.log('Good night!');
 			}
+
+			let guess = '';
 		</script>
 	</body>
 </html>
