@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			
+		</title>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<script>
+			function convertLength(num, unit1, unit2) {
+				if (unit1 === 'miles' && unit2 === 'km') {
+					num *= 1.6;
+					return (`${num} km`);
+				}
+				else if (unit1 === 'km' && unit2 === 'miles') {
+					num /= 1.6;
+					return (`${num} miles`);
+				}
+				else if (unit1 === 'miles' && unit2 === 'ft') {
+					num *= 5280;
+					return (`${num} ft`);
+				}
+				else if (unit1 === 'km' && unit2 === 'ft') {
+					num *= 3281;
+					return (`${num} ft`);
+				}
+				else if (unit1 === 'ft' && unit2 === 'km') {
+					num /= 3281;
+					return (`${num} km`);
+				}
+				else if (unit1 === 'ft' && unit2 === 'miles') {
+					num /= 5280;
+					return (`${num} miles`);
+				}
+				else if (unit1 === unit2 && (unit1 === 'km' || unit1 === 'miles' || unit1 === 'ft')) {
+					return (`${num} ${unit1}`);
+				}
+				
+				if (!(unit1 === 'km' || unit1 === 'miles' || unit1 === 'ft'))
+					return (`Invalid unit: ${unit1}`);
+				else
+					return (`invalid unit: ${unit2}`);
+			}
+
+			let res = '';
+			res = convertLength(5, 'lbs', 'km');
+			console.log(res);
+		</script>
+	</body>
+</html>

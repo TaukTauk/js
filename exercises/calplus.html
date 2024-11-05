@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <div>Calculator</div>
+    <div>
+        <button onclick="addToCalculation('1')">1</button>
+        <button onclick="addToCalculation('2')">2</button>
+        <button onclick="addToCalculation('3')">3</button>
+        <button onclick="addToCalculation(' + ')">+</button>
+    </div>
+    <div>
+        <button onclick="addToCalculation('4')">4</button>
+        <button onclick="addToCalculation('5')">5</button>
+        <button onclick="addToCalculation('6')">6</button>
+        <button onclick="addToCalculation(' - ')">-</button>
+    </div>
+    <div>
+        <button onclick="addToCalculation('7')">7</button>
+        <button onclick="addToCalculation('8')">8</button>
+        <button onclick="addToCalculation('9')">9</button>
+        <button onclick="addToCalculation(' * ')">*</button>
+    </div>
+    <div>
+        <button onclick="addToCalculation('0')">0</button>
+        <button onclick="addToCalculation('.')">.</button>
+        <button onclick="evaluateCalculation()">=</button>
+        <button onclick="addToCalculation(' / ')">/</button>
+    </div>
+    <div>
+        <button onclick="clearCalculation()">Clear</button>
+    </div>
+
+    <script>
+        // Initialize calculation from localStorage or start fresh
+        let calculation = localStorage.getItem('calculation') || '';
+
+        // Function to add values to calculation and update localStorage
+        function addToCalculation(value) {
+            calculation += value;
+            localStorage.setItem('calculation', calculation);
+            console.log('Current Calculation:', calculation);
+        }
+
+        // Function to evaluate calculation, display result, and store in localStorage
+        function evaluateCalculation() {
+                console.log('Evaluating:', calculation);  // Log the expression before evaluating
+                calculation = eval(calculation).toString();  // Calculate and store result as a string
+                localStorage.setItem('calculation', calculation);
+                console.log('Result:', calculation);
+        }
+
+        // Function to clear calculation and localStorage
+        function clearCalculation() {
+            calculation = '0'; // Reset calculation
+            // localStorage.removeItem('calculation');  // Clear from localStorage
+            console.log('Calculation cleared');
+        }
+
+        // Display initial value from localStorage for debugging
+        console.log('Initial Calculation from localStorage:', calculation);
+    </script>
+</body>
+</html>
