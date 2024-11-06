@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Name</title>
+</head>
+<body>
+	<input type="text" placeholder="Your name" class="nameText" onkeydown="keyPrint(event);">
+	<button onclick="printName();">Submit</button>
+	<p class="name"></p>
+	<script>
+		let nameText = document.querySelector('.nameText');
+		function printName(){
+			name = nameText.value;
+			document.querySelector(".name").innerHTML = `Your name is: ${name}`;
+		}
+		function keyPrint(event){
+			if (event.key === 'Enter'){
+				printName();
+			}
+		}
+	</script>
+</body>
+</html>

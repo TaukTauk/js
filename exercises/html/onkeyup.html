@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OnKeyUp</title>
+</head>
+<body>
+	<input type="text" placeholder="Type..." class="inputP" onkeyup="printKey();">
+	<p class="textP"></p>
+	<script>
+		let textP = document.querySelector(".textP").innerHTML;
+		textP = "";
+		function printKey() {
+			document.querySelector(".textP").innerHTML = document.querySelector(".inputP").value;
+		}
+	</script>
+</body>
+</html>

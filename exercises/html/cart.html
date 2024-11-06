@@ -13,76 +13,87 @@
 		</style>
 	</head>
 	<body>
-		<button onclick="console.log(`Cart: ${cart}`);" class="one">
+		<button onclick="printCart();" class="one">
 			Cart
 		</button>
 		<button onclick="cart++;
 			if (cart > 10) {
 				cart = 10;
-				console.log('The cart is full.');
 			}
-		console.log(cart);" class="one">
+			printCart();
+			" class="one">
 		+1
 		</button>
 		<button onclick="cart += 2;
 			if (cart > 10) {
 				cart = 10;
-				console.log('The cart is full.');
 			}
-		console.log(cart);" class="one">
+			printCart();
+			" class="one">
 		+2
 		</button>
 		<button onclick="cart += 3;
 			if (cart > 10) {
 				cart = 10;
-				console.log('The cart is full.');
 			}
-		console.log(cart);" class="one">
+			printCart();
+			" class="one">
 		+3
 		</button>
 		<button onclick="cart += 4;
 			if (cart > 10) {
 				cart = 10;
-				console.log('The cart is full.');
 			}
-		console.log(cart);" class="one">
+			printCart();
+			" class="one">
 		+4
 		</button>
 		<button onclick="cart += 5;
 			if (cart > 10) {
 				cart = 10;
-				console.log('The cart is full.');
 			}
-		console.log(cart);" class="one">
+			printCart();
+			" class="one">
 		+5
 		</button>
 		<button onclick="
-			if (cart - 2 < 0) {
-			
-				console.log('The cart is empty.');
+			cart -= 2;
+			if (cart < 0) {
+				cart = 0;
 			}
-			else {
-				cart -= 2;
-			}
-		console.log(cart);" class="one">
+			printCart();
+			" class="one">
 		-2
 		</button>
 		<button onclick="
-			if (cart - 3 < 0) {
-				console.log('The cart is empty.');
+			cart -= 3;
+			if (cart < 0) {
+				cart = 0;
 			}
-			else {
-				cart -= 3;
-			}
-		console.log(cart);" class="one">
+			printCart();
+			" class="one">
 		-3
 		</button>
 		<button onclick="cart = 0;
-		console.log(`Reset cart ${cart}`);" class="one">
+			printCart();
+			" class="one">
 		Reset
 		</button>
+		<p class="resultP"></p>
+		<p class="message"></p>
 		<script>
 			let cart = 0;
+			function messageP(){
+				if (cart === 10 || cart === 0)
+					document.querySelector(".message").innerHTML = `You have reached limit`;
+				else
+				document.querySelector(".message").innerHTML = '';
+			}
+			function printCart(){
+				document.querySelector(".resultP").innerHTML = `You cart: ${cart}`;
+				messageP();
+			}
+			
 		</script>
 	</body>
 </html>
