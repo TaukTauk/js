@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation Example</title>
+</head>
+<body>
+  <button id="addItem">Add Item</button>
+  <ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+
+  <script>
+    const button = document.getElementById("addItem");
+    const list = document.getElementById("list");
+
+    button.addEventListener("click", () => {
+      const newItem = document.createElement("li");
+      newItem.textContent = `Item ${list.children.length + 1}`;
+      list.appendChild(newItem);
+    });
+
+    // Using event delegation to handle clicks on all list items
+    list.addEventListener("click", (event) => {
+      if (event.target.tagName === "LI") {
+        alert(`You clicked on ${event.target.textContent}`);
+      }
+    });
+  </script>
+</body>
+</html>
