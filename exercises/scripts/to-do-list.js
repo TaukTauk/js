@@ -3,24 +3,32 @@ const todolist = JSON.parse(todo) || [];
 
 function renderTodo() {
 	let todolistHTML = '';
-	for (let i = 0; i < todolist.length; i++) {
-		const todoObject = todolist[i];
+	todolist.forEach((todoObject, index) => {
 		const { name, dueDate } = todoObject;
 		const todoTag = `
 		<div>${name}</div>
 		<div>${dueDate}</div>
-		<button onclick="
-		todolist.splice(${i}, 1);
-		renderTodo();
-		" class="del-btn">
+		<button class="del-btn del_button">
 		Delete
 		</button>
 		`;
 		todolistHTML += todoTag;
-	}
+	});
+	
 	document.querySelector(".container").innerHTML = todolistHTML;
+	document.querySelectorAll(".del_button").forEach(
+		(deleteButton, index) => {
+			deleteButton.addEventListener('click', () => {
+				todolist.splice(index, 1);
+				renderTodo();
+			})
+
+	})
 }
 
+document.querySelector(".add_button").addEventListener('click', () => {
+	addTodo();
+})
 function addTodo() {
 	const inputE = document.querySelector(".nameInput");
 	const name = inputE.value;
